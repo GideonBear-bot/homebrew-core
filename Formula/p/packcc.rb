@@ -1,8 +1,8 @@
 class Packcc < Formula
   desc "Parser generator for C"
   homepage "https://github.com/arithy/packcc"
-  url "https://github.com/arithy/packcc/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "6dc28154e04a5af6f1cfa89eb654cd4c691bbced75d2b2a5feb09c6e7d458ede"
+  url "https://github.com/arithy/packcc/archive/refs/tags/v3.0.1.tar.gz"
+  sha256 "d357c9bddf20a583bc78eb9a1e988b494b1c5fec1cf830570882e34bc43295e0"
   license "MIT"
   head "https://github.com/arithy/packcc.git", branch: "main"
 
@@ -18,7 +18,7 @@ class Packcc < Formula
   depends_on "cmake" => :build
 
   def install
-    inreplace "src/packcc.c", "/usr/share/packcc/", "#{prefix}/"
+    inreplace "src/packcc.c", "/usr/share/packcc/", "#{pkgshare}/"
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
